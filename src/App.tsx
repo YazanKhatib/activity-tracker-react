@@ -159,7 +159,7 @@ const App: React.FC = () => {
             </form>
           </div>
 
-          <div className='flex flex-col items-center justify-center overflow-y-scroll rounded-3xl bg-gray-600 p-4 lg:w-[45%] lg:pt-40'>
+          <div className='flex flex-col items-center overflow-y-scroll rounded-3xl bg-white p-4 lg:w-[45%]'>
             {activities &&
               activities.map((activity: any, key) => (
                 <div
