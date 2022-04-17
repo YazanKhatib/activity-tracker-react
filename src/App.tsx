@@ -166,13 +166,12 @@ const App: React.FC = () => {
                   key={key}
                   onClick={() => setActivity(activity)}
                   className='shadown-md mb-4 flex w-full cursor-pointer rounded-3xl bg-cyan-100 p-4 last:mb-2 hover:bg-cyan-200'>
-                  <div className='w-1/3'>
-                    <span className='rounded-xl bg-white px-3 py-1 font-bold text-cyan-300'>
-                      {activity.type}
-                    </span>
-                  </div>
-
                   <div>
+                    <div className='mb-4'>
+                      <span className='rounded-xl bg-white px-3 py-1 font-bold text-cyan-300'>
+                        {activity.type}
+                      </span>
+                    </div>
                     <h1 className='text-md font-bold'>{activity.name}</h1>
                     <h1 className='text-md font-bold'>{`Duration: ${
                       activity.duration === undefined
