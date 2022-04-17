@@ -39,7 +39,7 @@ const App: React.FC = () => {
   React.useEffect(() => {
     try {
       const getActivities = async () => {
-        const { data } = await axios.get('http://localhost:3000/activity');
+        const { data } = await axios.get('https://activity-tracker-nodejs.herokuapp.com/activity');
         setActivities(data.activities);
       };
 
@@ -51,7 +51,7 @@ const App: React.FC = () => {
 
   const onSubmit = async () => {
     try {
-      await axios.post('http://localhost:3000/activity', {
+      await axios.post('https://activity-tracker-nodejs.herokuapp.com/activity', {
         name,
         type: category,
       });
@@ -73,12 +73,15 @@ const App: React.FC = () => {
       setTime(0);
     }
 
-    const { data } = await axios.patch(`http://localhost:3000/activity/${activity.id}`, {
-      start: status ? now : undefined,
-      stop: status ? undefined : now,
-      //@ts-ignore
-      duration: status ? undefined : (now.getTime() - activity.start.getTime()) / 1000,
-    });
+    const { data } = await axios.patch(
+      `https://activity-tracker-nodejs.herokuapp.com/activity/${activity.id}`,
+      {
+        start: status ? now : undefined,
+        stop: status ? undefined : now,
+        //@ts-ignore
+        duration: status ? undefined : (now.getTime() - activity.start.getTime()) / 1000,
+      }
+    );
     setActivities(data.activities);
   };
 
